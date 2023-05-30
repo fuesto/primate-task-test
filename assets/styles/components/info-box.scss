@@ -1,0 +1,129 @@
+.info-box {
+  @include responsive-grid();
+
+  &__inner {
+    grid-column: slot(grid, wide);
+  }
+
+  &__content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 66ch;
+
+    &-intro {
+      @include typography('text xl');
+      margin-bottom: 1.5em;
+    }
+    &-paragraph {
+      @include typography('text md');
+    }
+  }
+}
+
+
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+
+
+.listing {
+  width: 94%;
+  max-width: 84em;
+  margin: 0 auto;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    border-radius: 0.5rem;
+
+    &__media {
+
+      &-image {
+        width: 100%;
+        min-height: 510px;
+        object-fit: cover;
+        aspect-ratio: 1 / 1;
+        transition: all 0.5s ease;
+        
+        &:hover {
+          transform: scale(1.15);
+        }
+      }
+    }
+
+    &__body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      color: white;
+      padding: 2rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.99) 0%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.5rem;
+
+      &-label {
+        font-size: 0.8rem;
+        border-radius: 0.35rem;
+        padding: 0.5em 0.85em;
+        font-weight: 600;
+        margin-bottom: 1.15em;
+        opacity: 0.9;
+      }
+
+      .blueviolet {
+        background-color: lighten(violet, 25);
+        color: blueviolet;
+      }
+
+      .deepskyblue {
+        background-color: lighten(LightSkyBlue, 1);
+        color: MediumBlue;
+      }
+
+      .oldlace {
+        background-color: OldLace;
+        color: black;
+      }
+
+
+      &-title {
+        font-size: 1.48rem;
+        font-weight: 600;
+        line-height: 28px;
+      }
+
+      &-location {
+        font-size: 0.9rem;
+        background: url('/assets/icons/map-pin.svg');
+        max-width: 20rem;
+        padding: 0 1.6em;
+        line-height: 3em;
+        background-repeat: no-repeat;
+        background-position: 0 13px;
+        background-size: 13px;
+      }
+    }
+  }
+
+}
+
+
